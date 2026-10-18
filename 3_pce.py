@@ -36,14 +36,14 @@ algorithm_globals.random_seed = SEED
 # LB = 8
 
 # Flowshop instances from OR-Tools
-# instances = load_or_library_instances("input/flowshop1.txt")
-# DURATIONS = instances['car1'].T
-# LB = 7038
+instances = load_or_library_instances("input/flowshop1.txt")
+DURATIONS = instances['car1'].T
+LB = 7038
 
 # Taillard instances
-times, lbs = read_taillard_instances("input/tai20_5.txt")
-DURATIONS = times[0].T
-LB = lbs[0]
+# times, lbs = read_taillard_instances("input/tai20_5.txt")
+# DURATIONS = times[0].T
+# LB = lbs[0]
 
 num_jobs, num_machines = len(DURATIONS), len(DURATIONS[0])
 print(f"Problem size: {num_jobs} jobs, {num_machines} machines")
@@ -159,7 +159,7 @@ def loss_fn(theta):
 all_func_vals = []
 objective_func_vals = []  # Global variable
 
-TRAIN_RESTARTS, TRAIN_MAXITER = 1, 400
+TRAIN_RESTARTS, TRAIN_MAXITER = 1, 100
 rng = np.random.default_rng(SEED)
 best_train = {"loss": np.inf, "e": None, "theta": None}
 
@@ -353,19 +353,19 @@ plt.show()
 
 # %%
 '''
-Problem size: 20 jobs, 5 machines
+    Problem size: 20 jobs, 5 machines
 
-Number of qubits: 17
-Number of parameters in ansatz: 102
+    Number of qubits: 17
+    Number of parameters in ansatz: 102
 
-Training 1: final loss=1077521.202364, evaluations=400, time=1182.55s
-Best training loss: 1077521.202364472
-Qubits: 17 | PCE variables: 400
+    Training 1: final loss=1077521.202364, evaluations=400, time=1182.55s
+    Best training loss: 1077521.202364472
+    Qubits: 17 | PCE variables: 400
 
-Job sequence (1-based): [18, 6, 19, 4, 9, 17, 1, 12, 11, 2, 13, 5, 14, 16, 8, 15, 10, 7, 20, 3]
-Actual makespan: 1418
-Lower bound: 1232
-Gap to lower bound: 15.10%
+    Job sequence (1-based): [18, 6, 19, 4, 9, 17, 1, 12, 11, 2, 13, 5, 14, 16, 8, 15, 10, 7, 20, 3]
+    Actual makespan: 1418
+    Lower bound: 1232
+    Gap to lower bound: 15.10%
 '''
 '''
 Problem size: 11 jobs, 5 machines

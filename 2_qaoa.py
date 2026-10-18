@@ -17,6 +17,7 @@ from utils import read_base_instance, solution_from_sequence
 from plots import custom_plot_machine_gantt
 from pyjobshop import Model as JobShopModel
 from itertools import pairwise
+import time
 
 SEED = 10598
 np.random.seed(SEED)
@@ -32,7 +33,7 @@ algorithm_globals.random_seed = SEED
 DURATIONS = read_base_instance("input/base2_2.json")
 
 # base 3x3
-# DURATIONS = read_base_instance("input/base3_3.json")
+DURATIONS = read_base_instance("input/base3_3.json")
 
 num_jobs, num_machines = len(DURATIONS), len(DURATIONS[0])
 print(f"Problem size: {num_jobs} jobs, {num_machines} machines")
@@ -128,6 +129,7 @@ def cost_func_estimator(params, ansatz, hamiltonian, estimator):
     return cost
 
 
+start_time = time.time()
 result = minimize(
     cost_func_estimator,
     initial_gamma_beta,
@@ -139,7 +141,8 @@ result = minimize(
     },
     tol=1e-2,
 )
-
+end_time = time.time()
+print("Optimization time:", end_time - start_time, "seconds")
 # %%
 plt.figure(figsize=(12, 6))
 plt.plot(objective_func_vals)
