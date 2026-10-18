@@ -18,6 +18,8 @@ from plots import custom_plot_machine_gantt
 from pyjobshop import Model as JobShopModel
 from itertools import pairwise
 import time
+from pathlib import Path
+import json
 
 SEED = 10598
 np.random.seed(SEED)
@@ -30,10 +32,12 @@ algorithm_globals.random_seed = SEED
 # %%
 
 # base 2x2
-DURATIONS = read_base_instance("input/base2_2.json")
+filename = 'base2_2'
+# DURATIONS = read_base_instance(f"input/{filename}.json")
 
 # base 3x3
-DURATIONS = read_base_instance("input/base3_3.json")
+filename = 'base3_3'
+DURATIONS = read_base_instance(f"input/{filename}.json")
 
 num_jobs, num_machines = len(DURATIONS), len(DURATIONS[0])
 print(f"Problem size: {num_jobs} jobs, {num_machines} machines")
@@ -202,5 +206,34 @@ ax.tick_params(axis="y", labelsize=20)
 plt.tight_layout()
 plt.show()
 # %%
+sequence = sequences[0]
 
+if filename == 'base2_2':
+    job_names = ["Z1", "Z2"]  # Match rows of p
+    machine_names = ["T", "F"]  # Match columns of p
+elif filename == 'base3_3':
+    job_names = ["Z1", "Z2", "Z3"]  # Match rows of p
+    machine_names = ["T", "F", "S"]  # Match columns of p
+else:
+    filename = f"instance_{num_jobs}x{num_machines}"
+    job_names = [f"Z{i+1}" for i in range(num_jobs)]  # Match rows of p
+    machine_names = [f"M{i+1}" for i in range(num_machines)]  # Match columns of p
+
+n, m = len(p), len(p[0])
+C, schedule = [[0]*m for _ in range(n)], []
+
+for i, j in enumerate(map(int, sequence)):
+    for k in range(m):
+        start = max(C[i-1][k] if i else 0, C[i][k-1] if k else 0)
+        end = start + int(p[j][k])
+        C[i][k] = end
+        schedule.append({"job": job_names[j], "machine": machine_names[k],
+                         "start": start, "end": end})
+
+result = {"instance": f"instance_{n}x{m}",
+          "method": "QAOA (state-vector simulator)",
+          "makespan": C[-1][-1], "schedule": schedule}
+
+Path("./output").mkdir(parents=True, exist_ok=True)
+Path(f"./output/{filename}.json").write_text(json.dumps(result, indent=2))
 # %%

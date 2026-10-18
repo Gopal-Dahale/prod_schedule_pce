@@ -41,3 +41,5 @@ python 3_pce.py
 - **`3_pce.py`** — PCE with a `efficient_su2` ansatz and PAGD decoding, evaluated on the baselines, the 11 × 5 OR-Tools instance, and 20 × 5 Taillard instances.
 
 Each script generates a Gantt chart for its selected instance. Quantum circuit diagrams are saved separately.
+
+`output` holds output for base instances
