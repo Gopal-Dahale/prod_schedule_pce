@@ -30,7 +30,7 @@ uv pip install -r requirements.txt
 
 Select the instance inside the relevant Python file by commenting/uncommenting the instance definitions near the beginning, then run:
 
-```bash
+```bashle/prod_schedule_pce
 python 1_cp_sat.py
 python 2_qaoa.py
 python 3_pce.py
@@ -50,5 +50,4 @@ AI was primarily used for code generation, grammar correction, and improving sen
 
 ## Video link
 
-https://drive.google.com/file/d/1T0-yi0MEnDF4kaad7GEJsaDgZmukSYBR/view?usp=sharing
-
+https://drive.google.com/file/d/1rUSaMpntd5aaqvPTUcYdTz5s0jBIOlkS/view?usp=sharing
