@@ -47,3 +47,8 @@ Each script generates a Gantt chart for its selected instance. Quantum circuit d
 ## AI Usage
 
 AI was primarily used for code generation, grammar correction, and improving sentence structure in the development log and project design documentation. GitHub Copilot was used for all these purposes to improve code quality, clarity, and readability.
+
+## Video link
+
+https://drive.google.com/file/d/1T0-yi0MEnDF4kaad7GEJsaDgZmukSYBR/view?usp=sharing
+

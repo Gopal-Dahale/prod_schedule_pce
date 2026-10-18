@@ -32,13 +32,13 @@ from qiskit_algorithms.utils import algorithm_globals
 algorithm_globals.random_seed = SEED
 # %%
 # base 3x3
-# DURATIONS = read_base_instance("input/base3_3.json")
-# LB = 8
+DURATIONS = read_base_instance("input/base3_3.json")
+LB = 8
 
 # Flowshop instances from OR-Tools
-instances = load_or_library_instances("input/flowshop1.txt")
-DURATIONS = instances['car1'].T
-LB = 7038
+# instances = load_or_library_instances("input/flowshop1.txt")
+# DURATIONS = instances['car1'].T
+# LB = 7038
 
 # Taillard instances
 # times, lbs = read_taillard_instances("input/tai20_5.txt")
