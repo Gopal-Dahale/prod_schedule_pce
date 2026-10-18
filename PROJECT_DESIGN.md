@@ -39,7 +39,7 @@ where $LB$ is the stated lower bound. This is not an optimality gap unless the b
 The position-based encoding uses $n^2$ binary variables:
 
 $$
-x_{i,j}=\begin{cases}1,&\text{if job }j\text{ occupies position }i,\\0,&\text{otherwise.}\end{cases}
+x_{i,j}=\begin{cases}1,&\text{if job }j\text{ occupies position }i, \\ 0,&\text{otherwise.}\end{cases}
 $$
 
 A feasible solution is a permutation matrix. Each position must contain one job, and each job must occur in one position:
@@ -69,6 +69,7 @@ This penalty is zero exactly when all row and column constraints hold.
 ### 4.3 Approximate scheduling cost
 
 The current baseline retains the approximate position-based cost used in the prototype:
+
 $$
 E_{\mathrm{cost}}(x)
 =
