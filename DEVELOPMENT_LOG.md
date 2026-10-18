@@ -57,6 +57,7 @@ E_{\mathrm{cost}} = \sum_{k=1}^{m-1}\sum_{i=1}^{n-1} \left( \sum_{j=1}^{n} p_{j,
 $$
 
 The assignment constraints are incorporated using squared penalties:
+
 $$
 E_{\mathrm{constraints}} ={} \sum_{i=1}^{n} \left(\sum_{j=1}^{n}x_{i,j}-1\right)^2\\ + \sum_{j=1}^{n} \left(\sum_{i=1}^{n}x_{i,j}-1\right)^2.
 $$
