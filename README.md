@@ -43,3 +43,7 @@ python 3_pce.py
 Each script generates a Gantt chart for its selected instance. Quantum circuit diagrams are saved separately.
 
 `output` holds output for base instances
+
+## AI Usage
+
+AI was primarily used for code generation, grammar correction, and improving sentence structure in the development log and project design documentation. GitHub Copilot was used for all these purposes to improve code quality, clarity, and readability.
