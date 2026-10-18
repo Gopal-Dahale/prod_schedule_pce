@@ -32,12 +32,12 @@ algorithm_globals.random_seed = SEED
 # %%
 
 # base 2x2
-filename = 'base2_2'
-# DURATIONS = read_base_instance(f"input/{filename}.json")
+filename = 'schedule_2x2'
+DURATIONS = read_base_instance(f"input/base2_2.json")
 
 # base 3x3
-filename = 'base3_3'
-DURATIONS = read_base_instance(f"input/{filename}.json")
+# filename = 'schedule_3x3'
+# DURATIONS = read_base_instance(f"input/base3_3.json")
 
 num_jobs, num_machines = len(DURATIONS), len(DURATIONS[0])
 print(f"Problem size: {num_jobs} jobs, {num_machines} machines")
@@ -208,10 +208,10 @@ plt.show()
 # %%
 sequence = sequences[0]
 
-if filename == 'base2_2':
+if filename == 'schedule_2x2':
     job_names = ["Z1", "Z2"]  # Match rows of p
     machine_names = ["T", "F"]  # Match columns of p
-elif filename == 'base3_3':
+elif filename == 'schedule_3x3':
     job_names = ["Z1", "Z2", "Z3"]  # Match rows of p
     machine_names = ["T", "F", "S"]  # Match columns of p
 else:
