@@ -130,6 +130,17 @@ The following results were supplied in project notes.
 | 11 jobs × 5 machines | 121 | 10 | 60 | 100 | 29.37 s | `[10, 8, 11, 9, 7, 4, 6, 3, 5, 2, 1]` | 8691 | 7038 | 23.49% |
 | 20 jobs × 5 machines | 400 | 17 | 102 | 400 | 1182.55 s | `[18, 6, 19, 4, 9, 17, 1, 12, 11, 2, 13, 5, 14, 16, 8, 15, 10, 7, 20, 3]` | 1418 | 1232 | 15.10% |
 
+Below shows Gantt chart for 11 jobs × 5 machines
+
+Classical Solver             |  PCE
+:-------------------------:|:-------------------------:
+![](./images/11x5_gantt_or_tools.png)  |  ![](./images/11x5_gantt_pce.png)
+
+Below shows Gantt chart for 20 jobs × 5 machines
+
+Classical Solver             |  PCE
+:-------------------------:|:-------------------------:
+![](./images/20x5_gantt_or_tools.png)  |  ![](./images/20x5_gantt_pce.png)
 
 PCE demonstrates a substantial reduction in physical qubit count relative to the number of encoded binary variables: 9 variables are represented with 3 qubits, 121 with 10 qubits, and 400 with 17 qubits. This reduction comes with the cost of measuring and optimizing many Pauli correlations.
 
