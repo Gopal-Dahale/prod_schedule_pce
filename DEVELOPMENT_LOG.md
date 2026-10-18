@@ -51,26 +51,14 @@ E(x)=P E_{\mathrm{constraints}}(x)+E_{\mathrm{cost}}(x),
 $$
 
 The authors approximate the makespan objective with
+
 $$
-E_{\mathrm{cost}}
-=
-\sum_{k=1}^{m-1}\sum_{i=1}^{n-1}
-\left(
-\sum_{j=1}^{n} p_{j,k}x_{i+1,j}
--
-\sum_{j=1}^{n} p_{j,k+1}x_{i,j}
-\right).
+E_{\mathrm{cost}} = \sum_{k=1}^{m-1}\sum_{i=1}^{n-1} \left( \sum_{j=1}^{n} p_{j,k}x_{i+1,j} - \sum_{j=1}^{n} p_{j,k+1}x_{i,j}   \right).
 $$
 
 The assignment constraints are incorporated using squared penalties:
 $$
-E_{\mathrm{constraints}}
-={}
-\sum_{i=1}^{n}
-\left(\sum_{j=1}^{n}x_{i,j}-1\right)^2\\
-+
-\sum_{j=1}^{n}
-\left(\sum_{i=1}^{n}x_{i,j}-1\right)^2.
+E_{\mathrm{constraints}} ={} \sum_{i=1}^{n} \left(\sum_{j=1}^{n}x_{i,j}-1\right)^2\\ + \sum_{j=1}^{n} \left(\sum_{i=1}^{n}x_{i,j}-1\right)^2.
 $$
 
 The prototype uses $A=10$ for the small example. This was chosen as a scale-based penalty, not established as a universally sufficient value. 
@@ -84,9 +72,11 @@ We use the PyJobShop python library to quickly solve the base instances and gene
 ### Makespan evaluation separated from QUBO energy
 
 A separate schedule evaluator was added to the workflow. For a sequence $\pi$, completion times are computed using
+
 $$
 C_{i,k}=p_{\pi_i,k}+\max(C_{i-1,k},C_{i,k-1}),
 $$
+
 The actual makespan is $C_{n,m}$. This calculation is independent of the approximate QUBO energy and is used to evaluate every decoded sequence.
 
 ### QUBO matrix and QAOA
