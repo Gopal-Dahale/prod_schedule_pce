@@ -69,14 +69,7 @@ This penalty is zero exactly when all row and column constraints hold.
 The current baseline retains the approximate position-based cost used in the prototype:
 
 $$
-E_{\mathrm{cost}}(x)
-=
-\sum_{k=1}^{m-1}\sum_{i=1}^{n-1}
-\left(
-\sum_{j=1}^{n} p_{j,k}x_{i+1,j}
--
-\sum_{j=1}^{n} p_{j,k+1}x_{i,j}
-\right).
+E_{\mathrm{cost}}(x) = {}\sum_{k=1}^{m-1}\sum_{i=1}^{n-1} \left( \sum_{j=1}^{n} p_{j,k}x_{i+1,j} - \sum_{j=1}^{n} p_{j,k+1}x_{i,j} \right).
 $$
 
 This is the cost as implemented in the current model, with the natural index ranges that keep $i+1$ and $k+1$ valid. In this expression, processing times multiply individual assignment variables, so the cost contributes linear coefficients. The quadratic terms in the current QUBO come from the permutation penalties.
