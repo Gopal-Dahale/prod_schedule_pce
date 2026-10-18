@@ -57,11 +57,9 @@ These constraints ensure that a decoded assignment neither duplicates nor omits 
 The equalities are converted into squared penalties:
 
 $$
-\begin{aligned}
-E_{\mathrm{constraints}}(x)={}&
+E_{\mathrm{constraints}}(x)={}
 \sum_{i=1}^{n}\left(\sum_{j=1}^{n}x_{i,j}-1\right)^2\\
-&+\sum_{j=1}^{n}\left(\sum_{i=1}^{n}x_{i,j}-1\right)^2.
-\end{aligned}
++\sum_{j=1}^{n}\left(\sum_{i=1}^{n}x_{i,j}-1\right)^2.
 $$
 
 This penalty is zero exactly when all row and column constraints hold.
